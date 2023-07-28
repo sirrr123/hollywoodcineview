@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movies Project</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <link href="https://fonts.googleapis.com/css?family=Caprasimo:regular" rel="stylesheet" /><link href="https://fonts.googleapis.com/css?family=Raleway:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic" rel="stylesheet" />
+
+    <style>
+      .row {
+        display: flex;
+      }
+
+      .card {
+        /* border: 2px solid red; */
+
+        width: 300px;
+
+        background-color: #000000;
+
+        border-radius: 10px;
+
+        transition-duration: 0.3s;
+
+        /* x y blur size color */
+
+        box-shadow: 3px 3px 5px 2px rgba(0, 0, 0, 0.49);
+
+        transform: scale(0.8);
+        color: #fff;
+      }
+
+      .row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-items: start;
+        margin: 50px;
+      }
+
+      .card img {
+        width: 100%;
+      }
+
+      .card:hover {
+        transform: scale(1) rotate(0deg);
+      }
+
+      .swiper {
+        background-color: #ca91ff;
+        width: 100%;
+        padding-top: 50px;
+        padding-bottom: 50px;
+        /* background-image: url('https://variety.com/wp-content/uploads/2022/12/100-Greatest-Movies-Variety.jpg?w=1024'); */
+        background-size: cover;
+        background-position: center;
+      }
+
+      .swiper-slide {
+        background-position: center;
+        background-size: cover;
+        width: 600px;
+        height: 300px;
+        border-radius: 10px;
+        padding: 50px;
+        box-sizing: border-box;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+      }
+
+      .swiper-slide img {
+        display: block;
+        width: 100%;
+      }
+
+      .genre-btn {
+        padding: 10px 20px;
+        border-radius: 10px;
+        background-color: transparent;
+        border: 2px solid #fff;
+        color: #fff;
+        font-weight: bold;
+        font-size: 20px;
+      }
+
+      .slider-cont {
+      }
+
+      body {
+        margin: 0;
+        background-image: linear-gradient(0deg, #000000da, #000000dc),
+          url("https://hips.hearstapps.com/hmg-prod/images/best-fall-movies-1659459329.jpg?crop=0.937xw:1.00xh;0.0327xw,0&resize=1200:*");
+      }
+
+      #search {
+        padding: 20px;
+        border-radius: 50px;
+        display: block;
+        border: 2px solid rgb(50, 0, 97);
+        background-image: linear-gradient(0deg, #8400ffd4, #ffffff);
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      header {
+        background-image: linear-gradient(
+            0deg,
+            rgba(255, 255, 255, 0),
+            rgba(255, 255, 255, 0.757)
+          ),
+          url(https://wallpapercave.com/wp/wp2753409.jpg);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        height: 50vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        backdrop-filter: blur(10px);
+      }
+
+      .search-cont {
+        padding: 50px;
+        text-align: center;
+
+      }
+
+      .search-btn {
+        padding: 10px 20px;
+        border-radius: 50px;
+        margin: auto;
+        margin-top: 20px;
+        display: block;
+        border: 2px solid #fff;
+        background-color: #460087;
+        color: white;
+        width: 200px;
+        box-sizing: border-box;
+        font-weight: bold;
+        font-size: 20px;
+        display: block;
+      }
+
+      h1{
+        font-family:Caprasimo ;
+        color: rgb(255, 253, 253);
+        text-shadow: black;
+        font-size: 90px;
+        text-shadow: 5px 5px 2px black;
+      }
+
+      .card-title{
+        text-align: center;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <h1>HollywoodCineView</h1>
+    </header>
+    <div class="slider-cont">
+      <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+          
+          <div
+            class="swiper-slide"
+            style="
+              background-image: linear-gradient(0deg, black, #0000003c),
+                url('https://cdn.britannica.com/60/182360-050-CD8878D6/Avengers-Age-of-Ultron-Joss-Whedon.jpg');
+            "
+          >
+            <button
+              class="genre-btn"
+              id="action-btn"
+              onclick="searchByGenre('sci-fi')"
+            >
+              Science Fiction
+            </button>
+          </div>
+          <div
+            class="swiper-slide"
+            style="
+              background-image: linear-gradient(0deg, black, #0000003c),
+                url('https://images.immediate.co.uk/production/volatile/sites/3/2023/02/puss-in-boots-the-last-wish-c3cfde4.jpg');
+            "
+          >
+            <button
+              class="genre-btn"
+              id="action-btn"
+              onclick="searchByGenre('animation')"
+            >
+              Animated
+            </button>
+          </div>
+         
+          <div
+            class="swiper-slide"
+            style="
+              background-image: linear-gradient(0deg, black, #0000003c),
+                url('https://media.cnn.com/api/v1/images/stellar/prod/230213144330-02-titanic-25th-anniversary-restricted.jpg?c=original');
+            "
+          >
+            <button
+              class="genre-btn"
+              id="action-btn"
+              onclick="searchByGenre('Romance')"
+            >
+              Romantic
+            </button>
+          </div>
+          <div
+            class="swiper-slide"
+            style="
+              background-image: linear-gradient(0deg, black, #0000003c),
+                url('https://images.indianexpress.com/2019/06/annabelle-comes-home-759.jpeg');
+            "
+          >
+            <button
+              class="genre-btn"
+              id="action-btn"
+              onclick="searchByGenre('Horror')"
+            >
+              Horror
+            </button>
+          </div>
+          <div
+            class="swiper-slide"
+            style="
+              background-image: linear-gradient(0deg, black, #0000003c),
+                url('https://images.odishatv.in/uploadimage/library/16_9/16_9_5/IMAGE_1670324913.webp');
+            "
+          >
+            <button
+              class="genre-btn"
+              id="action-btn"
+              onclick="searchByGenre('Comedy')"
+            >
+              Comedy
+            </button>
+          </div>
+          <div
+            class="swiper-slide"
+            style="
+              background-image: linear-gradient(0deg, black, #0000003c),
+                url('https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/themes/2148075781/settings_images/3HkFVTF5QC6h1bC0jYWh_DFA_-_Documentary_Film_Academy_-_Opening_Card_copy.jpg');
+            "
+          >
+            <button
+              class="genre-btn"
+              id="action-btn"
+              onclick="searchByGenre('Documentary')"
+            >
+              Documentry
+            </button>
+          </div>
+          <div
+            class="swiper-slide"
+            style="
+              background-image: linear-gradient(0deg, black, #0000003c),
+                url('https://m.media-amazon.com/images/M/MV5BMjE3MDM5NDA5NF5BMl5BanBnXkFtZTcwOTE5MTk4OA@@._V1_.jpg');
+            "
+          >
+            <button
+              class="genre-btn"
+              id="action-btn"
+              onclick="searchByGenre('Crime')"
+            >
+              Crime
+            </button>
+          </div>
+          <div
+          class="swiper-slide"
+          style="
+            background-image: linear-gradient(0deg, black, #0000003c),
+              url('https://pbblogassets.s3.amazonaws.com/uploads/2020/06/09100915/John-Wick-Action-Genre-1.jpg');
+          "
+        >
+          <button
+            class="genre-btn"
+            id="action-btn"
+            onclick="searchByGenre('action')"
+          >
+            Action
+          </button>
+        </div>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+
+    <div class="search-cont">
+      <input id="search" type="text" placeholder="Enter Movie Name Here" />
+      <button class="search-btn" onclick="getInputData()">
+        <i class="fas fa-search"></i> Search
+      </button>
+    </div>
+
+    <div class="row">
+      <div style="width: 200px">
+        <img style="width: 100%" src="" id="image" />
+      </div>
+      <div class="row" id="result"></div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script>
+      var swiper = new Swiper(".mySwiper", {
+        effect: "coverflow",
+        grabCursor: true,
+        centeredSlides: true,
+        slidesPerView: "auto",
+        coverflowEffect: {
+          rotate: 50,
+          stretch: 0,
+          depth: 100,
+          modifier: 1,
+          slideShadows: true,
+        },
+        pagination: {
+          el: ".swiper-pagination",
+        },
+      });
+
+      const filterArray = (array) => {
+        return array.filter((obj) => {
+          if (obj.imageurl && obj.imageurl.length) {
+            return obj;
+          }
+        });
+      };
+
+      const placeholder =
+        "https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img/https://printworks-manchester.com/cinema-poster/images/film-poster-placeholder.png";
+
+      const getInputData = async function () {
+        const userinput = document.querySelector("#search").value;
+        console.log(userinput);
+        await ottData(userinput);
+      };
+
+      const ottData = async (moviename) => {
+        let link = `https://ott-details.p.rapidapi.com/search?title=${moviename}&start_year=1950&end_year=2023&min_imdb=6&max_imdb=10`;
+        const res = await fetch(link, {
+          headers: {
+            "X-RapidAPI-Key":
+              "8352b3af4fmsh7e9ccb8d1c9c84dp1f8331jsnd603bf8dd288",
+            "X-RapidAPI-Host": "ott-details.p.rapidapi.com",
+          },
+        }); // send request to the server
+        // alert(res.status);
+        if (res.status === 200) {
+          Swal.fire({
+            icon: "success",
+            title: "Success",
+            text: "Movie Searched Successfully",
+          });
+          const data = await res.json(); // get data from the response
+          console.log(data);
+          displayData(data.results);
+        } else {
+          Swal.fire({
+            icon: "error",
+            title: "Error " + res.status,
+            text: "Something Went Wrong",
+          });
+        }
+      };
+
+      const displayData = (data) => {
+        const result = document.querySelector("#result");
+        data = filterArray(data);
+        console.log(data);
+        result.innerHTML = "";
+        for (let obj of data) {
+          console.log(obj);
+          const div = document.createElement("div");
+          div.innerHTML = `<div class="card">
+        <img
+          src="${obj.imageurl ? obj.imageurl[0] : placeholder}"
+          alt=""
+        />
+        <hr />
+        <div style="padding: 20px">
+          <h3 class="card-title">${obj.title}</h3>
+          <h3 class="card-title">(${obj.type})</h3>
+          <h3 class="card-title">${obj.released}</h3>
+        <p style="text-align: center; margin: 0">${obj.synopsis}</p>
+        <p style="text-align: center; margin-top: 10px; font-weight: bold;">${obj.genre}</p>
+          </div>
+       
+      </div>`;
+          result.append(div);
+        }
+      };
+
+      const searchId = async (id) => {
+        let link = `https://ott-details.p.rapidapi.com/search?title=${moviename}&start_year=1950&end_year=2023&min_imdb=6&max_imdb=10`;
+        const res = await fetch(link, {
+          headers: {
+            "X-RapidAPI-Key":
+              "8352b3af4fmsh7e9ccb8d1c9c84dp1f8331jsnd603bf8dd288",
+            "X-RapidAPI-Host": "ott-details.p.rapidapi.com",
+          },
+        }); // send request to the server
+        alert(res.status);
+        const data = await res.json(); // get data from the response
+        console.log(data);
+        displayData(data.results);
+      };
+
+      const searchByGenre = async (genre) => {
+        const url = `https://ott-details.p.rapidapi.com/advancedsearch?start_year=1950&end_year=2023&min_imdb=7&max_imdb=10&genre=${genre}&language=english&type=movie&sort=latest&page=1`;
+        const options = {
+          method: "GET",
+          headers: {
+            "X-RapidAPI-Key":
+              "8352b3af4fmsh7e9ccb8d1c9c84dp1f8331jsnd603bf8dd288",
+            "X-RapidAPI-Host": "ott-details.p.rapidapi.com",
+          },
+        };
+
+        try {
+          const response = await fetch(url, options);
+          // alert(response.status);
+          Swal.fire({
+            icon: "success",
+            title: "Success",
+            text: "Movie fetched Successfully",
+          });
+          const result = await response.json();
+          displayData(result.results);
+          console.log(result);
+        } catch (error) {
+          console.error(error);
+        }
+      };
+
+      const checkImage = async (url) => {
+        const res = await fetch(url);
+        if (res.status === 200) {
+          return url;
+        } else {
+          return placeholder;
+        }
+      }
+
+    </script>
+  </body>
+</html>
